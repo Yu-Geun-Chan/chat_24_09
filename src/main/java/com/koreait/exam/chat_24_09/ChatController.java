@@ -22,11 +22,12 @@ public class ChatController {
 
 // v2 위 주석과 동일
     public record writeMessageRequest(String authorName, String content) {
-
     }
 
     public record writeMessageResponse(long id) {
+    }
 
+    public record messagesResponse(List<ChatMessage> chatMessages, long count) {
     }
 
     @PostMapping("/writeMessage")
@@ -39,7 +40,7 @@ public class ChatController {
 
     @GetMapping("/messages")
     @ResponseBody
-    public RsData<List<ChatMessage>> messages() {
-        return new RsData<>("S-1", "성공", chatMessages);
+    public RsData<messagesResponse> messages() {
+        return new RsData<>("S-1", "성공", new messagesResponse(chatMessages, chatMessages.size()));
     }
 }
