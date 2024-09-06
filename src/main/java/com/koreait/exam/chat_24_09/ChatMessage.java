@@ -16,10 +16,11 @@ public class ChatMessage {
     private String content;
 
     public ChatMessage(String authorName, String content) {
-        this(ChatMessageIdGenerator.getNextId(), LocalDateTime.now(), authorName, content); // 다른 생성자 실행
+        this(ChatMessageIdGenerator.getNextId(), LocalDateTime.now(), authorName, content);
     }
 
 }
+
 class ChatMessageIdGenerator {
     private static long id = 0;
 
