@@ -1,6 +1,7 @@
 package com.koreait.exam.chat_24_09;
 
 import ch.qos.logback.core.model.Model;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +13,10 @@ import java.util.stream.IntStream;
 @Controller
 @RequestMapping("/chat")
 @Slf4j
+@RequiredArgsConstructor
 public class ChatController {
+
+    private final SseEmitters sseEmitters;
 
     private List<ChatMessage> chatMessages = new ArrayList<>();
 
